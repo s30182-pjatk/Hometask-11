@@ -44,6 +44,8 @@ namespace Tutorial11.Controllers
                         return BadRequest("Medicaments count is greater than 10");
                     case "Medicament not found":
                         return NotFound("Medicament not found");
+                    case "Doctor not found":
+                        return NotFound("Doctor not found");
                     case "Due date cannot be earlier than date of issue":
                         return BadRequest("Due date cannot be earlier than date of issue");
                 }

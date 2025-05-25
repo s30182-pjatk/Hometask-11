@@ -30,6 +30,13 @@ public class HospitalService : IHospitalService
             await _context.SaveChangesAsync(); 
         }
         
+        //Check for doctor
+        var doctor = _context.Doctors.FirstOrDefault(d => d.IdDoctor == prescription.Doctor.IdDoctor);
+        if (doctor == null)
+        {
+            throw new Exception("Doctor not found");
+        }
+
         //Check prescription length
         if (prescription.Medicaments.Count >= 10)
         {
